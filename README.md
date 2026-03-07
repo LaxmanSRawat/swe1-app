@@ -11,4 +11,4 @@
   - `flake8`
   - Django tests with `coverage`
   - coverage upload with `coveralls`
-- On successful CI, Travis deploys to AWS Elastic Beanstalk (main branch).
+- On successful CI, Travis deploys to AWS Elastic Beanstalk (main branch). 
