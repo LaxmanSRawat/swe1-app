@@ -1,0 +1,26 @@
+language: python
+python:
+  - "3.12"
+
+install:
+  - pip install -r djangotutorial/requirements.txt
+
+script:
+  - black --check djangotutorial
+  - flake8 djangotutorial
+  - coverage run --source=mysite,polls djangotutorial/manage.py test polls
+
+after_success:
+  - coveralls
+
+deploy:
+  provider: elasticbeanstalk
+  edge: true
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  region: $AWS_DEFAULT_REGION
+  app: $EB_APP_NAME
+  env: $EB_ENV_NAME
+  bucket_name: $EB_BUCKET_NAME
+  on:
+    branch: main
