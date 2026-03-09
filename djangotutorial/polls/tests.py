@@ -43,3 +43,6 @@ class IndexViewTests(TestCase):
             [created_question],
             transform=lambda question: question,
         )
+
+    def test_dummy(self):
+        self.assertTrue(True)
